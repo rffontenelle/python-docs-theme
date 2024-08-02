@@ -73,3 +73,12 @@ jobs:
       - run: python3 babel_runner.py update -l pt_BR
       - run: python3 babel_runner.py compile
       - run: python3 babel_runner.py compile -l pt_BR
+      - name: Print .pot file
+        shell: bash
+        run: cat locales/messages.pot
+      - name: Print .po file
+        shell: bash
+        run: cat locales/pt_BR/LC_MESSAGES/messages.po
+      - name: list files in locales dir
+        shell: bash
+        run: ls -R locales/
