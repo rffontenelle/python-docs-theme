@@ -7,7 +7,7 @@ env:
 
 jobs:
   build_doc:
-    if: github.repository == "python/python-docs-theme"
+    if: ${{ github.repository == python/python-docs-theme }}
     name: Build CPython docs
     runs-on: ubuntu-latest
     strategy:
