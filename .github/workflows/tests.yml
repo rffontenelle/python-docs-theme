@@ -66,7 +66,7 @@ jobs:
       - name: Install dependencies
         run: |
           pip install -U pip
-          pip install babel
+          pip install babel jinja2
       - run: python3 babel_runner.py extract
       - run: python3 babel_runner.py init -l pt_BR
       - run: python3 babel_runner.py update
