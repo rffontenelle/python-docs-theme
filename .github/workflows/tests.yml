@@ -68,17 +68,17 @@ jobs:
           pip install -U pip setuptools
           pip install Babel jinja2
       - run: python3 babel_runner.py extract
-      - run: python3 babel_runner.py init -l pt_BR
+      - run: python3 babel_runner.py init -l XX
       - run: python3 babel_runner.py update
-      - run: python3 babel_runner.py update -l pt_BR
+      - run: python3 babel_runner.py update -l XX
       - run: python3 babel_runner.py compile
-      - run: python3 babel_runner.py compile -l pt_BR
+      - run: python3 babel_runner.py compile -l XX
       - name: Print .pot file
         shell: bash
         run: cat locales/messages.pot
       - name: Print .po file
         shell: bash
-        run: cat locales/pt_BR/LC_MESSAGES/messages.po
+        run: cat locales/XX/LC_MESSAGES/messages.po
       - name: list files in locales dir
         shell: bash
         run: ls -R locales/
