@@ -37,7 +37,7 @@ jobs:
           --group "$(id -g)"
           --skip-cache-invalidation
           --theme "$(pwd)"
-          --language pt_BR
+          --language pt-br
           --branch ${{ matrix.branch }}
       - name: Show logs
         if: failure()
