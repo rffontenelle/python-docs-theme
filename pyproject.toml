@@ -8,21 +8,20 @@ requires = [
 name = "python-docs-theme"
 description = "The Sphinx theme for the CPython docs and related projects"
 readme = "README.md"
-license.file = "LICENSE"
+license = "PSF-2.0"
+license-files = [ "LICENSE" ]
 authors = [ { name = "PyPA", email = "distutils-sig@python.org" } ]
-requires-python = ">=3.10"
+requires-python = ">=3.12"
 classifiers = [
   "Development Status :: 5 - Production/Stable",
   "Framework :: Sphinx :: Theme",
   "Intended Audience :: Developers",
-  "License :: OSI Approved :: Python Software Foundation License",
   "Operating System :: OS Independent",
   "Programming Language :: Python",
   "Programming Language :: Python :: 3 :: Only",
-  "Programming Language :: Python :: 3.10",
-  "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
   "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
   "Topic :: Documentation",
   "Topic :: Software Development :: Documentation",
 ]
@@ -69,3 +68,6 @@ lint.ignore = [
   "E241", # Multiple spaces after ','
 ]
 lint.isort.required-imports = [ "from __future__ import annotations" ]
+
+[tool.pyproject-fmt]
+max_supported_python = "3.14"

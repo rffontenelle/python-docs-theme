@@ -12,12 +12,12 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        branch: ["origin/main", "3.13", "3.12", "3.11", "3.10"]
+        branch: ["3.14", "3.13", "3.12"]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: 3
+          python-version: ${{ matrix.branch }}
           allow-prereleases: true
           cache: pip
       - name: Clone docsbuild scripts
@@ -37,8 +37,9 @@ jobs:
           --group "$(id -g)"
           --skip-cache-invalidation
           --theme "$(pwd)"
-          --language en
-          --branch ${{ matrix.branch }}
+          --languages en
+          --branches ${{ matrix.branch }}
+          ${{ matrix.branch == '3.14' && '--select-output no-html' || '' }}
       - name: Show logs
         if: failure()
         run: |
@@ -56,7 +57,7 @@ jobs:
       matrix:
         os: ["ubuntu-latest", "windows-latest"]
         # Test minimum supported and latest stable from 3.x series
-        python-version: ["3.10", "3"]
+        python-version: ["3.12", "3"]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
